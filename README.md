@@ -5,7 +5,7 @@ https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-6.0.101-windows
 
 Run application
 
-open your preferred shell and type
+open your preferred shell, go to src folder and type
 ```sh
 dotnet run
 ```
