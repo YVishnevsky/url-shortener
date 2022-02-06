@@ -2,9 +2,8 @@
 {
     public class SimpleUniqueStringProvider : IUniqueStringProvider
     {
-        int _counter;
+        static int _counter;
         readonly string[] _reservedIds;
-
 
         public SimpleUniqueStringProvider(uint initialCounter, IEnumerable<string> reservedIds)
         {
@@ -19,12 +18,12 @@
                 res = GetNewIdInternal();
 
             return res;
-        }
 
-        private string GetNewIdInternal()
-        {
-            var counter = Interlocked.Increment(ref _counter);
-            return ((uint)counter).ToBase62();
+            static string GetNewIdInternal()
+            {
+                var counter = Interlocked.Increment(ref _counter);
+                return ((uint)counter).ToBase62();
+            }
         }
     }
 }

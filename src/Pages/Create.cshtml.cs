@@ -19,7 +19,7 @@ namespace Nix.Tasks.UrlShortener.Pages
 
         [BindProperty]
         [DataType(DataType.Url)]
-        [Display(Name = "Long URL")]
+        [Display(Name = "URL")]
         public string UrlValue { get; set; }
 
 
