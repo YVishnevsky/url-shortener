@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Nix.Tasks.UrlShortener.Infrastructure;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nix.Tasks.UrlShortener.Pages
 {
@@ -17,6 +18,8 @@ namespace Nix.Tasks.UrlShortener.Pages
         }
 
         [BindProperty]
+        [DataType(DataType.Url)]
+        [Display(Name = "Long URL")]
         public string UrlValue { get; set; }
 
 

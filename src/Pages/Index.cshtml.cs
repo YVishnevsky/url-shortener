@@ -14,11 +14,9 @@ namespace Nix.Tasks.UrlShortener.Pages
         public string Location { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger, IUrlStorage urlStorage)
-
         {
             _logger = logger;
             _urlStorage = urlStorage;
-
         }
 
         public void OnGet()
