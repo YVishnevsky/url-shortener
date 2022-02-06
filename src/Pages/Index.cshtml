@@ -27,7 +27,7 @@
         {
             <tr>
                 <td>
-                    <a href="@($"{Model.Location}/{item.Id}")" >@item.Id</a>
+                    <a href="@($"{Model.Location}/{item.Id}")" >@($"{Model.Location}/{item.Id}")</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Value)
