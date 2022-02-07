@@ -3,14 +3,15 @@ using Nix.Tasks.UrlShortener.Infrastructure;
 
 //seed data
 var idProvider = new SimpleUniqueStringProvider(0, new[] { "index", "privacy" });
-new InMemoryUrlStorage().Add(new Url(id: idProvider.GetNewId(), value: "https://google.com"));
+var storage = new InMemoryUrlStorage();
+storage.Add(new Url(id: idProvider.GetNewId(), value: "https://google.com"));
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IUniqueStringProvider>(idProvider);
-builder.Services.AddSingleton<IUrlStorage>(sp => new InMemoryUrlStorage());
+builder.Services.AddSingleton<IUrlStorage>(storage);
 builder.Services.AddSingleton<IRequestLogger>(sp => new SimpleRequestLogger($"{Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly()?.Location)}/requests_{DateTime.Today:yyyyMMdd}.txt"));
 
 var app = builder.Build();
